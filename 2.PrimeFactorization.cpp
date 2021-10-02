@@ -5,6 +5,13 @@ using namespace std;
 int f[100], exp[100], len;
 
 void primeFactor(int n) {
+    if (n == 1) {
+        len++;
+        f[len] = 2;
+        exp[len] = 0;
+        return;
+    }
+
     int d = 2;
 
     // 2nd condition makes the time complexity from O(n) to O(sqrt(n))
@@ -30,10 +37,10 @@ void primeFactor(int n) {
 }
 
 int main() {
-    primeFactor(13);
-    cout << "/n";
-    for (int i = 0; i < 100; i++) {
-        cout << f[i] << " " << exp[i];
+    primeFactor(50);
+    cout << "\n";
+    for (int i = 1; i <= len; i++) {
+        cout << f[i] << " " << exp[i] << "\n";
     }
     return 0;
 }
